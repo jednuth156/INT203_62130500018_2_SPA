@@ -4,6 +4,7 @@
         <div class="col-md-6">
             <!-- Display all list -->
             <h1>Show List</h1>
+            
         </div>
     </div>
 </template>

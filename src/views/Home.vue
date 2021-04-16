@@ -22,7 +22,7 @@
                         <input v-model="user.phone" type="text" name="phone" id="phone" placeholder="+99...." required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
                     </div>
                     <div class="mb-6">
-                        <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">Create User</button>
+                        <page-button ton="Create User"></page-button>
                     </div>
                     <p class="text-base text-center text-gray-400" id="result">
                     </p>
@@ -35,7 +35,10 @@
 </template>
 
 <script>
-export default {
+import PageButton from '../components/PageButton.vue'
+
+export default { name:'Home',
+    components:{PageButton},
     data() {
         return {
             user : {
