@@ -23,7 +23,7 @@
           </li>
           <li class="nav-item">
             <router-link
-              to="/view"
+              to="/about"
               class="w-full py-2 text-lg font-bold no-underline text-dark hover:text-red sm:w-auto sm:pr-4 sm:py-1 sm:pt-2"
               >View User</router-link
             >

@@ -1,8 +1,5 @@
 {
-
-"photos": [
-    {"id": 1, "src": "images/1.jpg", "title": "Autumn", "favor": false,"like": 0 },
-    {"id": 2,"src": "images/2.jpg","title": "Hug & Love", "favor": false,"like": 0}
-    ]
+  "user": [
     
+  ]
 }

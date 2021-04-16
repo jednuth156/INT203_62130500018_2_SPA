@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
-import EditUser from "@/components/EditUser.vue";
-import List from "@/components/List.vue";
+import About from "@/views/About.vue";
 
 const routes = [
   {
@@ -10,15 +9,11 @@ const routes = [
     component: Home,
   },
   {
-    path: "/view",
-    name: "view",
-    component: List,
+    path: "/about",
+    name: "about",
+    component: About,
   },
-  {
-    path: "/edit/:id",
-    name: "edit",
-    component: EditUser,
-  },
+
 ];
 
 const router = createRouter({
