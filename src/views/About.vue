@@ -42,7 +42,7 @@ export default {
         }
     },
     methods : {
-        async getInfoResult() {
+        async getInfoUser() {
             try {
                 const res = await fetch(this.url);
                 const data = await res.json();
@@ -53,7 +53,7 @@ export default {
         }
     },
     async created() {
-        this.result = await this.getInfoResult();
+        this.result = await this.getInfoUser();
     }
     
 }
