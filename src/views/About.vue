@@ -5,15 +5,15 @@
       <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
         Show List
       </h1>
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table-fixed">
+      <div class="flex flex-col justify-center ">
+        <div class="w-full ">
+          <table class="mx-auto table-fixed">
             <thead>
-              <tr class="text-white bg-black">
+              <tr class="text-white bg-black ">
                 <th class="w-1/4 ...">FullName</th>
-                <th class="w-1/4 ...">Email</th>
-                <th class="w-1/4 ...">Phone</th>
-                <th class="w-1/4 ...">Action</th>
+                <th class="w-1/4  ...">Email</th>
+                <th class="w-1/4  ...">Phone</th>
+                <th class="w-1/4  ...">Action</th>
               </tr>
             </thead>
             <tbody>
