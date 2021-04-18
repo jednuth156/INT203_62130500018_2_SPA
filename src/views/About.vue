@@ -17,23 +17,26 @@
               </tr>
             </thead>
             <tbody>
+              
               <tr
-                v-for="results in result"
+                v-for="(results,index) in result"
                 :key="results.id"
                 class="bg-blue-200"
               >
+            
+                <th v-if="isedit[index]">{{ results.Fullname }}</th>
+                <th v-else><input type="text" v-model="results.Fullname" :placeholder="results.Fullname"></th>
+                <th v-if="isedit[index]">{{ results.Email }}</th>
+                <th v-else><input type="email" v-model="results.Email" :placeholder="results.Email" required></th>
+                <th v-if="isedit[index]">{{ results.Phone }}</th>
+                <th v-else><input type="text" v-model="results.Phone" :placeholder="results.Phone"></th>
+              
                 <th>
-                  {{ results.Fullname }}
-                </th>
-                <th>{{ results.Email }}</th>
-                <th>{{ results.Phone }}</th>
-                <th>
-                  <button
-                    @click="deletedUser(results.id)"
-                    class="m-1 bg-white"
-                  >
-                    <span class="material-icons-outlined">  <img src="@/assets/delete.svg" alt="" /> </span>
-                    
+                  <button @click="editList(index,results)" class="m-1 bg-white">
+                  <img src="@/assets/edit.svg" alt="" />
+                  </button>
+                  <button @click="deletedUser(results.id)" class="m-1 bg-white">
+                    <img src="@/assets/delete.svg" alt="" />
                   </button>
                 </th>
               </tr>
@@ -52,6 +55,7 @@ export default {
     return {
       url: "http://localhost:5000/user",
       result: [],
+      isedit: [],
     };
   },
   methods: {
@@ -76,13 +80,56 @@ export default {
         console.log(`Could not delete! ${error}`);
       }
     },
-  },
+    async editUser(edit){
+      try {
+        const res = await fetch(`${this.url}/${edit.id}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({
+              Fullname:edit.Fullname,
+              Email:edit.Email,
+              Phone:edit.Phone,
+            }),
+        });
+        const data = await res.json();
+        this.result = this.result.map((results) => 
+        results.id === edit.id
+        ? {
+          ... results,
+              Fullname:data.Fullname,
+              Email:data.Email,
+              Phone:data.Phone,
+        }
+        : results
+        );
+      }catch(error) {
+        console.log(`Could not edit! ${error}`);
+      }
+    } ,
+    editList(index,infos){
+      this.isedit[index] = !this.isedit[index];   
+      if (this.isedit[index]) {
+        this.editUser({
+          Fullname: infos.Fullname,
+          Email:infos.Email,
+          Phone:infos.Phone,
+          id: infos.id,
+        })
+        console.log(infos)
+      }
+    },
+    ChangeEdit(){
+      for(let i = 0; i < this.result.length;i++){
+        this.isedit[i] = true
+        
+      }
+    }
+    },
   async created() {
     this.result = await this.getInfoUser();
+    this.ChangeEdit();
   },
 };
 </script>
-
-<style scoped>
-
-</style>
