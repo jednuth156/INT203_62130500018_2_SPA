@@ -27,7 +27,7 @@
                 <th v-if="isedit[index]">{{ results.Fullname }}</th>
                 <th v-else><input type="text" v-model="results.Fullname" :placeholder="results.Fullname"></th>
                 <th v-if="isedit[index]">{{ results.Email }}</th>
-                <th v-else><input type="email" v-model="results.Email" :placeholder="results.Email" required></th>
+                <th v-else><input type="email" id="email" v-model="results.Email" :placeholder="results.Email"  required></th>
                 <th v-if="isedit[index]">{{ results.Phone }}</th>
                 <th v-else><input type="text" v-model="results.Phone" :placeholder="results.Phone"></th>
               
